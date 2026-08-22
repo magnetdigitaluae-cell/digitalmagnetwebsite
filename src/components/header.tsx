@@ -12,13 +12,8 @@ import {
   Search,
   X,
 } from "lucide-react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
 import { EnquireModal } from "@/components/enquire-modal";
+import { BrandIcon, headerSocials } from "@/components/brand-icons";
 import { navLinks, serviceLinks, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -49,22 +44,16 @@ export function Header() {
         <div className="container-site flex items-center justify-between py-2.5 text-sm font-medium">
           <div className="flex items-center gap-6">
             <span>Follow Us:</span>
-            <div className="flex items-center gap-2 border-l border-white/15 pl-6">
-              {[
-                { href: "https://twitter.com/", icon: FaTwitter, label: "Twitter" },
-                { href: "https://facebook.com/", icon: FaFacebookF, label: "Facebook" },
-                { href: "https://linkedin.com/", icon: FaLinkedinIn, label: "LinkedIn" },
-                { href: "https://instagram.com/", icon: FaInstagram, label: "Instagram" },
-              ].map(({ href, icon: Icon, label }) => (
+            <div className="follow-us flex items-center gap-2 border-l border-white/15 pl-6">
+              {headerSocials.map(({ href, label, icon }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="social-icon grid h-7 w-7 place-items-center bg-white text-[#e3c57f] transition-colors hover:text-navy"
                 >
-                  <Icon className="h-3.5 w-3.5" />
+                  <BrandIcon name={icon} />
                 </a>
               ))}
             </div>

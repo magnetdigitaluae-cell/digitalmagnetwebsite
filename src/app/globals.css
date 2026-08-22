@@ -170,10 +170,31 @@ a {
   background: rgba(255, 255, 255, 0.18);
 }
 
-.social-icon svg {
+.follow-us a {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  color: #e3c57f;
+}
+
+.follow-us a svg.header-brand-icon {
   display: block;
-  fill: currentColor !important;
+  width: 14px;
+  height: 14px;
+  overflow: visible;
+}
+
+.follow-us a svg.header-brand-icon,
+.follow-us a svg.header-brand-icon * {
+  fill: #e3c57f !important;
   stroke: none !important;
+}
+
+.follow-us a:hover svg.header-brand-icon,
+.follow-us a:hover svg.header-brand-icon * {
+  fill: #061729 !important;
 }
 
 input,
