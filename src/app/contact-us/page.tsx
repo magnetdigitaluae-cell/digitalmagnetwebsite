@@ -1,0 +1,94 @@
+import type { Metadata } from "next";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
+import { PageHeader } from "@/components/page-header";
+import { SectionHeading } from "@/components/heading";
+import { site } from "@/lib/site";
+import { Facebook, Twitter } from "@/components/social-icons";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Contact us",
+};
+
+export default function ContactPage() {
+  return (
+    <>
+      <PageHeader title="Contact us" />
+      <section className="py-20">
+        <div className="container-site grid gap-12 lg:grid-cols-2">
+          <div>
+            <SectionHeading eyebrow="contact details" title="Our Contact" />
+            <div className="mt-10 grid gap-8 sm:grid-cols-2">
+              <div>
+                <h4 className="mb-2 text-lg font-bold">Our Address:</h4>
+                <p className="inline-flex items-start gap-2 text-muted">
+                  <MapPin className="mt-1 h-4 w-4 text-gold" />
+                  {site.location}
+                </p>
+              </div>
+              <div>
+                <h4 className="mb-2 text-lg font-bold">Our mailbox:</h4>
+                {site.emails.map((email) => (
+                  <p key={email} className="mb-1">
+                    <a
+                      href={`mailto:${email}`}
+                      className="inline-flex items-center gap-2 text-muted hover:text-gold"
+                    >
+                      <Mail className="h-4 w-4 text-gold" />
+                      {email}
+                    </a>
+                  </p>
+                ))}
+              </div>
+              <div>
+                <h4 className="mb-2 text-lg font-bold">Our phones:</h4>
+                {site.phones.map((phone) => (
+                  <p key={phone} className="mb-1">
+                    <a
+                      href={`tel:${phone.replace(/\s/g, "")}`}
+                      className="inline-flex items-center gap-2 text-muted hover:text-gold"
+                    >
+                      <Phone className="h-4 w-4 text-gold" />
+                      {phone}
+                    </a>
+                  </p>
+                ))}
+              </div>
+              <div>
+                <h4 className="mb-3 text-lg font-bold">Connect with Us</h4>
+                <div className="flex gap-2">
+                  <Facebook />
+                  <Twitter />
+                  <a
+                    href="https://youtube.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Youtube"
+                    className="grid h-8 w-8 place-items-center rounded-full bg-orange text-white"
+                  >
+                    <FaYoutube className="h-3.5 w-3.5" />
+                  </a>
+                  <a
+                    href="https://instagram.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram"
+                    className="grid h-8 w-8 place-items-center rounded-full bg-gold text-black"
+                  >
+                    <FaInstagram className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-2xl bg-[#f7f7f7] p-8 md:p-10">
+            <p className="sub-heading">GET IN TOUCH</p>
+            <h2 className="mt-3 mb-6 text-3xl font-bold">Ready to Get Started?</h2>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

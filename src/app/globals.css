@@ -1,0 +1,463 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1b1e;
+  --muted: #606060;
+  --gold: #e3c57f;
+  --gold-soft: #fff1d2;
+  --cream: #fff9ed;
+  --cream-2: #fdf7e8;
+  --orange: #fe4c1c;
+  --blue: #0160e7;
+  --cyan: #00c3ff;
+  --navy: #061729;
+  --ink: #1a1b1e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-cream: var(--cream);
+  --color-cream-2: var(--cream-2);
+  --color-orange: var(--orange);
+  --color-blue: var(--blue);
+  --color-cyan: var(--cyan);
+  --color-navy: var(--navy);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-red-hat-text);
+  --font-display: var(--font-red-hat-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), "Red Hat Text", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), "Red Hat Display", sans-serif;
+  color: #1a1b1e;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: #e3c57f;
+  color: #1a1b1e;
+}
+
+.container-site {
+  width: min(1170px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(1320px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.sub-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #e3c57f;
+  font-family: var(--font-display), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.sub-heading::before,
+.sub-heading::after {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: #e3c57f;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 25px;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  padding: 16px 28px;
+  transition: all 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: #fe4c1c;
+  color: #fff;
+  box-shadow: 12px 12px 20px 0 rgba(254, 76, 28, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #00c3ff;
+  color: #fff;
+  box-shadow: 12px 12px 20px 0 rgba(0, 195, 255, 0.28);
+}
+
+.btn-secondary:hover {
+  box-shadow: none;
+}
+
+.btn-gold {
+  background: #e3c57f;
+  color: #000;
+  box-shadow: 8px 8px 18px 0 rgba(227, 197, 127, 0.35);
+}
+
+.btn-gold:hover {
+  box-shadow: none;
+}
+
+.btn-dark {
+  background: #1a1b1e;
+  color: #fff;
+}
+
+.btn-icon {
+  padding: 12px 18px 12px 22px;
+}
+
+.btn-sm {
+  gap: 8px;
+  font-size: 14px;
+  padding: 7px 10px 7px 16px;
+}
+
+.btn-sm .icon-circle {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-circle {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.social-icon svg {
+  display: block;
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.form-field {
+  width: 100%;
+  border: 1px solid #e7e7e7;
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #1a1b1e;
+  outline: none;
+}
+
+.form-field:focus {
+  border-color: #e3c57f;
+  background: #fff;
+}
+
+.page-header {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 100px 20px;
+  background:
+    linear-gradient(rgba(6, 23, 41, 0.45), rgba(6, 23, 41, 0.45)),
+    url("/images/page-header.jpg") center / cover no-repeat;
+  color: #fff;
+  text-align: center;
+  font-family: var(--font-display), sans-serif;
+}
+
+.page-header h1 {
+  color: #fff;
+  margin: 0;
+  font-size: clamp(36px, 5vw, 48px);
+  font-weight: 900;
+}
+
+.breadcrumb {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.breadcrumb li {
+  display: inline;
+}
+
+.breadcrumb li + li::before {
+  content: "›";
+  margin: 0 8px;
+  color: #a5b7d2;
+  font-size: 13px;
+}
+
+.breadcrumb a:hover {
+  color: #e3c57f;
+}
+
+/* Onum icon-box s3 — matches thedigitalmagnet.com/services */
+.icon-box-s3 {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 375px;
+  padding: 40px 27px 35px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 8px 8px 30px 0 rgba(42, 67, 113, 0.15);
+}
+
+.icon-box-s3:hover {
+  z-index: 2;
+}
+
+.icon-box-s3 .icon-main {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 25px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #25528a;
+  background-image: linear-gradient(145deg, #25528a, #484848);
+  box-shadow: 8px 8px 30px 0 rgba(42, 67, 113, 0.3);
+  transition: all 0.5s ease;
+}
+
+.icon-box-s3 .icon-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 15px;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #25528a;
+  background-image: linear-gradient(145deg, #25528a, #484848);
+  transition: all 0.3s linear;
+}
+
+.icon-box-s3 .icon-action {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s linear;
+}
+
+.icon-box-s3:hover .icon-overlay,
+.icon-box-s3:hover .icon-action {
+  opacity: 1;
+  visibility: visible;
+}
+
+.icon-box-s3:hover .icon-action {
+  bottom: -26px;
+}
+
+.icon-box-s3:hover .icon-main {
+  background: #fff;
+  background-image: none;
+  color: #00c3ff;
+}
+
+.icon-box-s3:hover h3,
+.icon-box-s3:hover h3 a,
+.icon-box-s3:hover p {
+  color: #fff;
+}
+
+.icon-box-s3:hover h3 a:hover {
+  color: #e3c57f;
+}
+
+.icon-box-s3-static .icon-main {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 25px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #25528a;
+  background-image: linear-gradient(145deg, #25528a, #484848);
+  box-shadow: 8px 8px 30px 0 rgba(42, 67, 113, 0.3);
+  transition: all 0.5s ease;
+}
+
+.icon-box-s3-static:hover .icon-main {
+  background: #fff;
+  background-image: none;
+  color: #00c3ff;
+}
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 40px;
+  margin: 0 0 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.project-filters button {
+  position: relative;
+  padding: 0 0 10px;
+  border: 0;
+  background: none;
+  color: #636363;
+  font-family: var(--font-display), "Red Hat Display", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s linear;
+}
+
+.project-filters button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  border-radius: 1.5px;
+  background: #e3c57f;
+  transition: width 0.3s ease;
+}
+
+.project-filters button:hover,
+.project-filters button.is-active {
+  color: #e3c57f;
+}
+
+.project-filters button:hover::after,
+.project-filters button.is-active::after {
+  width: 100%;
+}
+
+.projects-box {
+  position: relative;
+  display: block;
+  overflow: visible;
+  border-bottom: 60px solid transparent;
+}
+
+.projects-box .projects-thumb {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.projects-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s linear;
+}
+
+.projects-box:hover img {
+  transform: scale(1.05);
+}
+
+.projects-box .portfolio-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  z-index: 4;
+  width: 100%;
+}
+
+.projects-box .portfolio-info-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100% - 60px);
+  min-height: 118px;
+  margin: 0 auto;
+  padding: 28px 12px 16px;
+  text-align: center;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 8px 8px 30px 0 rgba(42, 67, 113, 0.15);
+}
+
+.projects-box .portfolio-info-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0 0 10px;
+  min-height: 2.4em;
+  color: #1a1b1e;
+  font-family: var(--font-display), "Red Hat Display", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.projects-box .portfolio-cates {
+  margin: 0;
+  color: #00c3ff;
+  font-family: var(--font-display), "Red Hat Display", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
