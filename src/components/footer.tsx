@@ -89,9 +89,9 @@ export function Footer() {
                 key={label}
                 href={href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label={label}
-                className="social-icon grid h-10 w-10 place-items-center bg-gold text-white transition-colors hover:bg-ink hover:text-gold"
+                className="social-icon grid h-11 w-11 place-items-center bg-gold text-navy transition-colors hover:bg-ink hover:text-gold"
               >
                 <Icon className="h-[18px] w-[18px]" />
               </a>
@@ -100,7 +100,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display text-xl font-bold text-white">Quick Link</h4>
+          <h2 className="font-display text-xl font-bold text-white">Quick Link</h2>
           <GoldDivider />
           <ul>
             {quickLinks.map((link) => (
@@ -110,7 +110,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display text-xl font-bold text-white">Our Services</h4>
+          <h2 className="font-display text-xl font-bold text-white">Our Services</h2>
           <GoldDivider />
           <ul>
             {footerServices.map((link) => (
@@ -121,7 +121,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display text-xl font-bold text-white">Contact Info</h4>
+          <h2 className="font-display text-xl font-bold text-white">Contact Info</h2>
           <GoldDivider />
           <ul className="space-y-[5px] font-display text-[15px] text-white">
             <li>
@@ -161,7 +161,8 @@ export function Footer() {
               <a
                 href="https://wa.me/971501590490"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label={`WhatsApp ${site.phones[0]}`}
                 className="flex items-start gap-2 py-[5px] transition-colors hover:text-gold"
               >
                 <FaWhatsapp className="mt-0.5 h-[22px] w-[22px] shrink-0 text-gold" />

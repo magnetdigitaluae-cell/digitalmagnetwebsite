@@ -11,12 +11,14 @@ export function PageHeader({
     <section className="page-header">
       <div>
         <h1>{title}</h1>
-        <ul className="breadcrumb">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>{current ?? title}</li>
-        </ul>
+        <nav aria-label="Breadcrumb">
+          <ol className="breadcrumb">
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li aria-current="page">{current ?? title}</li>
+          </ol>
+        </nav>
       </div>
     </section>
   );

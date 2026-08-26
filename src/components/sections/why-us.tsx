@@ -74,7 +74,7 @@ function Counter({ to, label, start }: { to: number; label: string; start: boole
   const value = useCountUp(to, start);
   return (
     <div>
-      <div className="font-display text-4xl font-bold text-gold">
+      <div className="font-display text-4xl font-bold text-gold-ink">
         {value}
         <span>+</span>
       </div>

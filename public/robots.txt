@@ -1,0 +1,49 @@
+# Magnet Digital LLC — robots.txt
+# https://www.thedigitalmagnet.com/
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://www.thedigitalmagnet.com/sitemap.xml
+Host: https://www.thedigitalmagnet.com
+
+# GEO / LLM discovery
+# llm.txt: https://www.thedigitalmagnet.com/llm.txt
+# llms.txt: https://www.thedigitalmagnet.com/llms.txt

@@ -3,13 +3,17 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { PageHeader } from "@/components/page-header";
 import { SectionHeading } from "@/components/heading";
+import { createMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { Facebook, Twitter } from "@/components/social-icons";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 
-export const metadata: Metadata = {
-  title: "Contact us",
-};
+export const metadata: Metadata = createMetadata({
+  title: "Contact Us",
+  description:
+    "Contact Magnet Digital LLC in Sharjah. Email info@thedigitalmagnet.com or call +971 56 5242459 to discuss website, SEO, ads, and app projects.",
+  path: "/contact-us",
+});
 
 export default function ContactPage() {
   return (
@@ -21,19 +25,19 @@ export default function ContactPage() {
             <SectionHeading eyebrow="contact details" title="Our Contact" />
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
               <div>
-                <h4 className="mb-2 text-lg font-bold">Our Address:</h4>
+                <h3 className="mb-2 text-lg font-bold">Our Address:</h3>
                 <p className="inline-flex items-start gap-2 text-muted">
                   <MapPin className="mt-1 h-4 w-4 text-gold" />
                   {site.location}
                 </p>
               </div>
               <div>
-                <h4 className="mb-2 text-lg font-bold">Our mailbox:</h4>
+                <h3 className="mb-2 text-lg font-bold">Our mailbox:</h3>
                 {site.emails.map((email) => (
                   <p key={email} className="mb-1">
                     <a
                       href={`mailto:${email}`}
-                      className="inline-flex items-center gap-2 text-muted hover:text-gold"
+                      className="inline-flex items-center gap-2 text-muted hover:text-gold-ink"
                     >
                       <Mail className="h-4 w-4 text-gold" />
                       {email}
@@ -42,12 +46,12 @@ export default function ContactPage() {
                 ))}
               </div>
               <div>
-                <h4 className="mb-2 text-lg font-bold">Our phones:</h4>
+                <h3 className="mb-2 text-lg font-bold">Our phones:</h3>
                 {site.phones.map((phone) => (
                   <p key={phone} className="mb-1">
                     <a
                       href={`tel:${phone.replace(/\s/g, "")}`}
-                      className="inline-flex items-center gap-2 text-muted hover:text-gold"
+                      className="inline-flex items-center gap-2 text-muted hover:text-gold-ink"
                     >
                       <Phone className="h-4 w-4 text-gold" />
                       {phone}
@@ -56,7 +60,7 @@ export default function ContactPage() {
                 ))}
               </div>
               <div>
-                <h4 className="mb-3 text-lg font-bold">Connect with Us</h4>
+                <h3 className="mb-3 text-lg font-bold">Connect with Us</h3>
                 <div className="flex gap-2">
                   <Facebook />
                   <Twitter />
@@ -65,7 +69,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Youtube"
-                    className="grid h-8 w-8 place-items-center rounded-full bg-orange text-white"
+                    className="grid h-11 w-11 place-items-center rounded-full bg-orange text-white"
                   >
                     <FaYoutube className="h-3.5 w-3.5" />
                   </a>
@@ -74,7 +78,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Instagram"
-                    className="grid h-8 w-8 place-items-center rounded-full bg-gold text-black"
+                    className="grid h-11 w-11 place-items-center rounded-full bg-gold text-navy"
                   >
                     <FaInstagram className="h-3.5 w-3.5" />
                   </a>

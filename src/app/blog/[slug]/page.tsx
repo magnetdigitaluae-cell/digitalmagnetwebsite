@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Calendar, MessageSquare, User } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 import { blogBody, getPost, posts } from "@/lib/site";
+import { createMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -20,7 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return { title: "Not found" };
-  return { title: post.title };
+  return createMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -36,7 +41,7 @@ export default async function BlogPostPage({ params }: Props) {
           <article>
             <Image
               src={post.image}
-              alt={post.title}
+              alt={`${post.title} – Magnet Digital LLC blog`}
               width={1100}
               height={640}
               className="mb-8 h-auto w-full rounded-xl object-cover"
@@ -52,7 +57,6 @@ export default async function BlogPostPage({ params }: Props) {
                 <MessageSquare className="h-4 w-4" /> {post.comments} Comments
               </span>
             </div>
-            <h1 className="text-3xl font-bold md:text-4xl">{post.title}</h1>
             <div className="mt-6 space-y-5 text-muted">
               {blogBody.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -63,14 +67,14 @@ export default async function BlogPostPage({ params }: Props) {
               formula for failure. It is: Try to please everybody.” – Herbert
               Bayard Swope
             </blockquote>
-            <h3 className="mt-10 text-2xl font-bold">
+            <h2 className="mt-10 text-2xl font-bold">
               SEO is a Cost-Effective Advertising Strategy
-            </h3>
+            </h2>
             <p className="mt-4 text-muted">{blogBody[2]}</p>
           </article>
           <aside className="space-y-8">
             <div className="rounded-xl bg-[#f7f7f7] p-7">
-              <h3 className="mb-5 text-xl font-bold">Latest News</h3>
+            <h2 className="mb-5 text-xl font-bold">Latest News</h2>
               <ul className="space-y-4">
                 {posts.slice(0, 3).map((item) => (
                   <li key={item.slug} className="flex gap-3">
@@ -84,7 +88,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <div>
                       <Link
                         href={`/blog/${item.slug}`}
-                        className="font-display text-sm font-bold leading-snug hover:text-gold"
+                        className="font-display text-sm font-bold leading-snug hover:text-gold-ink"
                       >
                         {item.title}
                       </Link>
@@ -95,11 +99,11 @@ export default async function BlogPostPage({ params }: Props) {
               </ul>
             </div>
             <div className="rounded-xl bg-[#f7f7f7] p-7">
-              <h3 className="mb-5 text-xl font-bold">Categories</h3>
+              <h2 className="mb-5 text-xl font-bold">Categories</h2>
               <ul className="space-y-2 text-[15px]">
                 {["Marketing", "Business", "SEO"].map((category) => (
                   <li key={category}>
-                    <Link href="/blog" className="hover:text-gold">
+                    <Link href="/blog" className="hover:text-gold-ink">
                       {category}
                     </Link>
                   </li>

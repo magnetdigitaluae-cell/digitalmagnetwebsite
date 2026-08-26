@@ -5,6 +5,7 @@
   --foreground: #1a1b1e;
   --muted: #606060;
   --gold: #e3c57f;
+  --gold-ink: #6f5418;
   --gold-soft: #fff1d2;
   --cream: #fff9ed;
   --cream-2: #fdf7e8;
@@ -20,6 +21,7 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
   --color-gold-soft: var(--gold-soft);
   --color-cream: var(--cream);
   --color-cream-2: var(--cream-2);
@@ -34,6 +36,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -42,6 +45,13 @@ body {
   font-family: var(--font-sans), "Red Hat Text", system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.75;
+  overflow-x: clip;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 h1,
@@ -80,7 +90,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: #e3c57f;
+  color: #6f5418;
   font-family: var(--font-display), sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -153,7 +163,8 @@ a {
 .btn-sm {
   gap: 8px;
   font-size: 14px;
-  padding: 7px 10px 7px 16px;
+  min-height: 44px;
+  padding: 8px 12px 8px 16px;
 }
 
 .btn-sm .icon-circle {
@@ -173,10 +184,10 @@ a {
 .follow-us a {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 44px;
+  height: 44px;
   background: #fff;
-  color: #e3c57f;
+  color: #6f5418;
 }
 
 .follow-us a svg.header-brand-icon {
@@ -231,11 +242,22 @@ select {
   font-family: var(--font-display), sans-serif;
 }
 
+@media (max-width: 640px) {
+  .page-header {
+    padding: 64px 16px;
+  }
+
+  .container-site,
+  .container-wide {
+    width: min(1170px, calc(100% - 24px));
+  }
+}
+
 .page-header h1 {
   color: #fff;
   margin: 0;
   font-size: clamp(36px, 5vw, 48px);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .breadcrumb {
@@ -374,10 +396,11 @@ select {
 
 .project-filters button {
   position: relative;
-  padding: 0 0 10px;
+  min-height: 44px;
+  padding: 12px 0 10px;
   border: 0;
   background: none;
-  color: #636363;
+  color: #4a4a4a;
   font-family: var(--font-display), "Red Hat Display", sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -402,7 +425,7 @@ select {
 
 .project-filters button:hover,
 .project-filters button.is-active {
-  color: #e3c57f;
+  color: #6f5418;
 }
 
 .project-filters button:hover::after,

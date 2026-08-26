@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/page-header";
 import { ServiceSidebar } from "@/components/service-sidebar";
+import { createMetadata } from "@/lib/seo";
 import { getService, services } from "@/lib/site";
 
 type Props = {
@@ -18,7 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return { title: "Not found" };
-  return { title: service.navTitle ?? service.title };
+  return createMetadata({
+    title: service.navTitle ?? service.title,
+    description: service.excerpt,
+    path: `/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: Props) {
@@ -41,7 +46,7 @@ export default async function ServicePage({ params }: Props) {
             <div className="mt-10 grid gap-6">
               {service.features.map((feature, index) => (
                 <div key={feature.title} className="flex gap-5">
-                  <div className="font-display text-3xl font-bold text-gold">
+                  <div className="font-display text-3xl font-bold text-gold-ink">
                     {String(index + 1).padStart(2, "0")}
                   </div>
                   <div>

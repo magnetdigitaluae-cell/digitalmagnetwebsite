@@ -1,7 +1,9 @@
 export const site = {
   name: "Magnet Digital LLC",
-  title: "Digital Marketing",
-  url: "https://thedigitalmagnet.com",
+  title: "Magnet Digital LLC | Digital Marketing & SEO Agency in UAE",
+  description:
+    "Magnet Digital LLC is a Sharjah-based digital marketing and SEO agency. We build websites, ecommerce stores, and mobile apps, and run Google Ads, Meta Ads, and SEO/GEO campaigns across the UAE.",
+  url: "https://www.thedigitalmagnet.com",
   location: "Sharjah (UAE)",
   emails: ["info@thedigitalmagnet.com", "magnetdigitaluae@gmail.com"],
   phones: ["+971 50 1590490", "+971 56 5242459"],

@@ -52,10 +52,10 @@ export function FeatureBoxes() {
             >
               <item.icon className={`h-6 w-6 ${item.iconColor}`} />
             </div>
-            <div className="mb-2 font-display text-sm font-bold text-gold">
+            <div className="mb-2 font-display text-sm font-bold text-gold-ink">
               {item.num}
             </div>
-            <h3 className="text-xl font-bold">{item.title}</h3>
+            <h2 className="text-xl font-bold">{item.title}</h2>
             <p className="mt-2 text-[15px] text-muted">{item.text}</p>
           </article>
         ))}

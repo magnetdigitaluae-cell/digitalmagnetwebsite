@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { SectionHeading } from "@/components/heading";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "FAQs",
-};
+  description:
+    "Answers to common questions about Magnet Digital LLC services, location in Sharjah, SEO, and how to start a website or marketing project.",
+  path: "/faqs",
+});
 
 const faqs = [
   {
@@ -38,8 +42,8 @@ export default function FaqsPage() {
                 key={item.q}
                 className="group rounded-xl bg-[#f7f7f7] p-6 open:bg-cream"
               >
-                <summary className="cursor-pointer list-none font-display text-lg font-bold">
-                  {item.q}
+                <summary className="cursor-pointer list-none">
+                  <h3 className="font-display text-lg font-bold">{item.q}</h3>
                 </summary>
                 <p className="mt-3 text-muted">{item.a}</p>
               </details>

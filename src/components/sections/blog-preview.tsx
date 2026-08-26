@@ -17,14 +17,14 @@ export function BlogPreview() {
               <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
                 <Image
                   src={post.image}
-                  alt={post.title}
+                  alt={`${post.title} article thumbnail`}
                   width={640}
                   height={420}
                   className="h-52 w-full object-cover transition duration-500 hover:scale-105"
                 />
               </Link>
               <div className="p-6">
-                <div className="mb-3 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-wide text-gold">
+                <div className="mb-3 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-wide text-gold-ink">
                   {post.categories.map((category) => (
                     <span key={category}>{category}</span>
                   ))}
@@ -41,14 +41,15 @@ export function BlogPreview() {
                   </span>
                 </div>
                 <h3 className="text-lg font-bold leading-snug">
-                  <Link href={`/blog/${post.slug}`} className="hover:text-gold">
+                  <Link href={`/blog/${post.slug}`} className="hover:text-gold-ink">
                     {post.title}
                   </Link>
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-muted">{post.excerpt}</p>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="mt-4 inline-flex text-sm font-bold text-ink hover:text-gold"
+                  className="mt-4 inline-flex min-h-11 items-center text-sm font-bold text-ink hover:text-gold-ink"
+                  aria-label={`Read article: ${post.title}`}
                 >
                   View details
                 </Link>

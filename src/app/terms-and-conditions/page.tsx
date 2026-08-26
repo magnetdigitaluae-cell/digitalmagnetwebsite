@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Terms and Conditions",
-};
+  description:
+    "Terms of use for thedigitalmagnet.com and Magnet Digital LLC website, services, and project engagements.",
+  path: "/terms-and-conditions",
+});
 
 export default function TermsPage() {
   return (

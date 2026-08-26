@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Privacy Policy",
-};
+  description:
+    "How Magnet Digital LLC collects, uses, and protects personal information submitted through thedigitalmagnet.com.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPage() {
   return (

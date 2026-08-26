@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { SectionHeading } from "@/components/heading";
 import { ServiceCard } from "@/components/service-card";
+import { createMetadata } from "@/lib/seo";
 import { services } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Services",
-};
+export const metadata: Metadata = createMetadata({
+  title: "Digital Marketing Services",
+  description:
+    "Website development, custom ecommerce, iOS and Android apps, Google Ads, Meta Ads, social media management, SEO/GEO, hosting, and design services from Magnet Digital LLC.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

@@ -12,8 +12,8 @@ export function ServiceSidebar({ current }: { current?: string }) {
             <li key={service.slug} className="border-b border-black/5 last:border-0">
               <Link
                 href={`/${service.slug}`}
-                className={`flex items-center justify-between py-3 text-[15px] hover:text-gold ${
-                  current === service.slug ? "font-bold text-gold" : "text-ink"
+                className={`flex min-h-11 items-center justify-between py-3 text-[15px] hover:text-gold-ink ${
+                  current === service.slug ? "font-bold text-gold-ink" : "text-ink"
                 }`}
               >
                 {service.navTitle ?? service.title}

@@ -5,10 +5,14 @@ import { PageHeader } from "@/components/page-header";
 import { ProgressBar } from "@/components/progress-bar";
 import { SectionHeading } from "@/components/heading";
 import { TeamSlider } from "@/components/team-slider";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "About Us",
-};
+  description:
+    "Meet Magnet Digital LLC, a values-driven SEO and digital marketing agency in Sharjah helping UAE businesses grow with ethical, long-term search and web strategies.",
+  path: "/about-us",
+});
 
 const stats = [
   { to: 150, label: "ACTIVE CLIENTS" },
@@ -27,7 +31,7 @@ export default function AboutPage() {
           <div>
             <Image
               src="/images/about/about-1.png"
-              alt="Magnet Digital LLC team"
+              alt="Magnet Digital LLC team collaborating on SEO and digital marketing strategy in Sharjah"
               width={596}
               height={647}
               className="h-auto w-full"
@@ -104,7 +108,7 @@ export default function AboutPage() {
             <div className="max-lg:order-first">
               <Image
                 src="/images/about/about-2.png"
-                alt="SEO and digital marketing"
+                alt="SEO specialists reviewing search rankings and digital marketing reports"
                 width={660}
                 height={617}
                 className="mx-auto h-auto w-full max-w-[520px]"
@@ -125,11 +129,11 @@ export default function AboutPage() {
               <div className="relative grid grid-cols-2 gap-y-10 md:grid-cols-4">
                 {stats.map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <h6 className="relative mb-[13px] inline-block pl-5 font-display text-sm font-bold tracking-[1px] text-[#ffd68e]">
+                    <p className="relative mb-[13px] inline-block pl-5 font-display text-sm font-bold tracking-[1px] text-[#ffd68e]">
                       <span className="absolute left-0 top-1/2 h-[7px] w-[7px] -translate-y-1/2 rounded-full bg-[#ffd68e]" />
                       {stat.label}
-                    </h6>
-                    <div className="font-display text-5xl font-black leading-none text-[#071322]">
+                    </p>
+                    <div className="font-display text-5xl font-extrabold leading-none text-[#071322]">
                       <CountUp to={stat.to} />
                     </div>
                   </div>

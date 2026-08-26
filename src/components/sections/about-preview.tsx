@@ -13,10 +13,11 @@ export function AboutPreview() {
         <div className="relative mx-auto max-w-[520px]">
           <Image
             src="/images/home-banner.png"
-            alt="Web design and digital marketing"
+            alt="Web design, SEO, and digital marketing services from Magnet Digital LLC"
             width={770}
             height={770}
             className="h-auto w-full"
+            sizes="(max-width: 1024px) 100vw, 520px"
           />
         </div>
         <div className="lg:pl-10">
@@ -45,9 +46,13 @@ export function AboutPreview() {
               , we focus on solutions that deliver long-term value.
             </p>
           </div>
-          <Link href="/about-us" className="btn btn-primary btn-icon mt-8">
-            Read More
-            <span className="icon-circle">
+          <Link
+            href="/about-us"
+            className="btn btn-primary btn-icon mt-8"
+            aria-label="Read more about Magnet Digital LLC"
+          >
+            About Magnet Digital
+            <span className="icon-circle" aria-hidden>
               <ArrowRight className="h-4 w-4" />
             </span>
           </Link>

@@ -50,7 +50,7 @@ export function Header() {
                   key={label}
                   href={href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   aria-label={label}
                 >
                   <BrandIcon name={icon} />
@@ -84,7 +84,7 @@ export function Header() {
         )}
       >
         <div className="container-site flex items-center justify-between py-3 lg:py-4">
-          <Link href="/" className="shrink-0">
+          <Link href="/" className="shrink-0" aria-label="Magnet Digital LLC home">
             <Image
               src="/images/logo.png"
               alt="Magnet Digital LLC"
@@ -103,15 +103,24 @@ export function Header() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "inline-flex items-center gap-1 font-display text-[15px] font-bold transition-colors hover:text-gold",
+                      "inline-flex items-center gap-1 font-display text-[15px] font-bold transition-colors hover:text-gold-ink",
                       pathname.startsWith("/services") ||
                         serviceLinks.some(
                           (service) =>
                             pathname.replace(/\/$/, "") === `/${service.slug}`,
                         )
-                        ? "text-gold"
+                        ? "text-gold-ink"
                         : "text-ink",
                     )}
+                    aria-current={
+                      pathname.startsWith("/services") ||
+                      serviceLinks.some(
+                        (service) =>
+                          pathname.replace(/\/$/, "") === `/${service.slug}`,
+                      )
+                        ? "page"
+                        : undefined
+                    }
                   >
                     {link.label}
                     <ChevronDown className="h-3.5 w-3.5" />
@@ -122,7 +131,7 @@ export function Header() {
                         <Link
                           key={service.slug}
                           href={`/${service.slug}/`}
-                          className="block px-5 py-2 text-sm text-muted hover:bg-cream hover:text-ink"
+                          className="block min-h-11 px-5 py-3 text-sm text-muted hover:bg-cream hover:text-ink"
                         >
                           {service.title}
                         </Link>
@@ -135,9 +144,18 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "font-display text-[15px] font-bold transition-colors hover:text-gold",
-                    pathname === link.href ? "text-gold" : "text-ink",
+                    "font-display text-[15px] font-bold transition-colors hover:text-gold-ink",
+                    pathname.replace(/\/$/, "") === link.href.replace(/\/$/, "") ||
+                    (link.href === "/" && (pathname === "/" || pathname === ""))
+                      ? "text-gold-ink"
+                      : "text-ink",
                   )}
+                  aria-current={
+                    pathname.replace(/\/$/, "") === link.href.replace(/\/$/, "") ||
+                    (link.href === "/" && (pathname === "/" || pathname === ""))
+                      ? "page"
+                      : undefined
+                  }
                 >
                   {link.label}
                 </Link>
@@ -172,7 +190,11 @@ export function Header() {
         {searchOpen ? (
           <div className="border-t border-black/5 bg-white px-5 py-4">
             <form action="/blog" className="container-site flex gap-3">
+              <label htmlFor="site-search" className="sr-only">
+                Search the blog
+              </label>
               <input
+                id="site-search"
                 name="s"
                 placeholder="Search..."
                 className="form-field"

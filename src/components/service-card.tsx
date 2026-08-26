@@ -63,7 +63,7 @@ export function ServiceCard({
             <ServiceIcon slug={service.slug} />
           </div>
           <h3 className="text-xl font-bold">
-            <Link href={`/${service.slug}`} className="hover:text-gold">
+            <Link href={`/${service.slug}`} className="hover:text-gold-ink">
               {title}
             </Link>
           </h3>
@@ -72,9 +72,10 @@ export function ServiceCard({
         <Link
           href={`/${service.slug}`}
           className="btn btn-secondary btn-icon btn-sm mt-6 -ml-[30px] w-fit rounded-l-none"
+          aria-label={`Read more about ${title}`}
         >
-          Read More
-          <span className="icon-circle">
+          Read more
+          <span className="icon-circle" aria-hidden>
             <ArrowRight className="h-3.5 w-3.5" />
           </span>
         </Link>
@@ -97,9 +98,13 @@ export function ServiceCard({
         </p>
       </div>
       <div className="icon-action flex justify-center">
-        <Link href={`/${service.slug}`} className="btn btn-gold btn-icon btn-sm">
-          Read More
-          <span className="icon-circle">
+        <Link
+          href={`/${service.slug}`}
+          className="btn btn-gold btn-icon btn-sm"
+          aria-label={`Read more about ${title}`}
+        >
+          Read more
+          <span className="icon-circle" aria-hidden>
             <ArrowRight className="h-3.5 w-3.5" />
           </span>
         </Link>
