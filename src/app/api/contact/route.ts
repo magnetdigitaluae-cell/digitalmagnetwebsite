@@ -26,8 +26,12 @@ function readString(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function readEnv(name: string) {
+  return process.env[name]?.replace(/^["']|["']$/g, "").trim() || "";
+}
+
 export async function POST(request: Request) {
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = readEnv("RESEND_API_KEY");
   if (!apiKey) {
     return NextResponse.json(
       { error: "Email is not configured yet." },
@@ -73,9 +77,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "One of the fields is too long." }, { status: 400 });
   }
 
-  const to = process.env.RESEND_TO || site.emails[0];
+  const to = readEnv("RESEND_TO") || site.emails[0];
   const from =
-    process.env.RESEND_FROM || `Magnet Digital <beth.t@example.com>`;
+    readEnv("RESEND_FROM") || "Magnet Digital <beth.t@example.com>";
 
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({

@@ -12,7 +12,6 @@ import {
   Search,
   X,
 } from "lucide-react";
-import { EnquireModal } from "@/components/enquire-modal";
 import { BrandIcon, headerSocials } from "@/components/brand-icons";
 import { navLinks, serviceLinks, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -22,7 +21,6 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [enquireOpen, setEnquireOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -172,9 +170,9 @@ export function Header() {
             >
               <Search className="h-4 w-4" />
             </button>
-            <button type="button" onClick={() => setEnquireOpen(true)} className="btn btn-gold">
+            <Link href="/contact-us/" className="btn btn-gold">
               Enquire Now
-            </button>
+            </Link>
           </div>
 
           <button
@@ -245,18 +243,13 @@ export function Header() {
                   </Link>
                 ),
               )}
-              <button
-                type="button"
-                onClick={() => setEnquireOpen(true)}
-                className="btn btn-gold mt-3 w-full"
-              >
+              <Link href="/contact-us/" className="btn btn-gold mt-3 w-full">
                 Enquire Now
-              </button>
+              </Link>
             </nav>
           </div>
         ) : null}
       </header>
-      <EnquireModal open={enquireOpen} onClose={() => setEnquireOpen(false)} />
     </>
   );
 }
