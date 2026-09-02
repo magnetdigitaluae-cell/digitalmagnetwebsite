@@ -30,6 +30,18 @@ function readEnv(name: string) {
   return process.env[name]?.replace(/^["']|["']$/g, "").trim() || "";
 }
 
+const CONTACT_FROM = "Magnet Digital <info@thedigitalmagnet.com>";
+const CONTACT_TO = site.emails[0];
+
+function resolveFrom() {
+  const raw = readEnv("RESEND_FROM") || CONTACT_FROM;
+  const domain = raw.match(/@([^>\s]+)/)?.[1]?.toLowerCase() ?? "";
+  if (!domain || domain === "example.com" || domain.endsWith(".example.com")) {
+    return CONTACT_FROM;
+  }
+  return raw;
+}
+
 export async function POST(request: Request) {
   const apiKey = readEnv("RESEND_API_KEY");
   if (!apiKey) {
@@ -77,9 +89,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "One of the fields is too long." }, { status: 400 });
   }
 
-  const to = readEnv("RESEND_TO") || site.emails[0];
-  const from =
-    readEnv("RESEND_FROM") || "Magnet Digital <beth.t@example.com>";
+  const to = readEnv("RESEND_TO") || CONTACT_TO;
+  const from = resolveFrom();
 
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({

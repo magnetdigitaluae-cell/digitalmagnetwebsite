@@ -25,7 +25,6 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },
   { href: "/contact-us", label: "Contact us" },
 ];
@@ -559,38 +558,6 @@ export const serviceLinks = services.map((service) => ({
 }));
 
 export const homeServices = services.slice(0, 6);
-
-export const portfolio = [
-  {
-    slug: "niagra-uae",
-    title: "Niagra UAE",
-    image: "/images/portfolio/niagra.png",
-    categories: ["Development"],
-    url: "https://www.niagrauae.com/",
-  },
-  {
-    slug: "dyota-engineered-solutions",
-    title: "Dyota Engineered Solutions",
-    image: "/images/portfolio/dyota.jpg",
-    categories: ["Development", "Optimization"],
-    url: "https://www.dyotaes.com/",
-  },
-  {
-    slug: "ss-trailers",
-    title: "SS Trailers",
-    image: "/images/portfolio/sstrailers.png",
-    categories: ["Development", "Marketing"],
-    url: "https://www.sstrailers.net/",
-  },
-] as const;
-
-export const portfolioFilters = [
-  "All",
-  "Development",
-  "Marketing",
-  "Media",
-  "Optimization",
-] as const;
 
 export const posts = [
   {
