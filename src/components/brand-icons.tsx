@@ -23,18 +23,15 @@ export function BrandIcon({
   name: keyof typeof icons;
   size?: number;
 }) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#E3C57F" d="${icons[name]}"/></svg>`;
+
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+    <img
+      src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`}
+      alt=""
       width={size}
       height={size}
-      fill="#E3C57F"
-      aria-hidden
-      focusable="false"
       className="header-brand-icon"
-    >
-      <path fill="#E3C57F" d={icons[name]} />
-    </svg>
+    />
   );
 }

@@ -8,6 +8,12 @@ export const site = {
   emails: ["info@thedigitalmagnet.com", "magnetdigitaluae@gmail.com"],
   phones: ["+971 50 1590490", "+971 56 5242459"],
   website: "www.thedigitalmagnet.com",
+  partner: {
+    name: "Hussaini IT Services",
+    location: "India",
+    website: "www.hussainiitservices.com",
+    url: "https://hussainiitservices.com",
+  },
 };
 
 export type Service = {

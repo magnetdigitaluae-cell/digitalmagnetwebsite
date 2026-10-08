@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Globe, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { PageHeader } from "@/components/page-header";
 import { SectionHeading } from "@/components/heading";
@@ -11,7 +11,7 @@ import { FaInstagram, FaYoutube } from "react-icons/fa";
 export const metadata: Metadata = createMetadata({
   title: "Contact Us",
   description:
-    "Contact Magnet Digital LLC in Sharjah. Email info@thedigitalmagnet.com or call +971 56 5242459 to discuss website, SEO, ads, and app projects.",
+    "Contact Magnet Digital LLC in Sharjah, or our partner company Hussaini IT Services in India. Email info@thedigitalmagnet.com or visit hussainiitservices.com.",
   path: "/contact-us",
 });
 
@@ -83,6 +83,27 @@ export default function ContactPage() {
                     <FaInstagram className="h-3.5 w-3.5" />
                   </a>
                 </div>
+              </div>
+              <div className="sm:col-span-2">
+                <h3 className="mb-2 text-lg font-bold">Our Partner in India:</h3>
+                <p className="font-display text-[17px] font-bold text-ink">
+                  {site.partner.name}
+                </p>
+                <p className="mt-1 inline-flex items-start gap-2 text-muted">
+                  <MapPin className="mt-1 h-4 w-4 text-gold" />
+                  {site.partner.location}
+                </p>
+                <p className="mt-1">
+                  <a
+                    href={site.partner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-muted hover:text-gold-ink"
+                  >
+                    <Globe className="h-4 w-4 text-gold" />
+                    {site.partner.website}
+                  </a>
+                </p>
               </div>
             </div>
           </div>

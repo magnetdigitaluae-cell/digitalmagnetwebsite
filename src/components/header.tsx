@@ -86,10 +86,9 @@ export function Header() {
             <Image
               src="/images/logo.png"
               alt="Magnet Digital LLC"
-              width={82}
-              height={82}
-              className="h-[70px] lg:h-[82px]"
-              style={{ width: "auto" }}
+              width={56}
+              height={56}
+              className="header-logo"
               priority
             />
           </Link>

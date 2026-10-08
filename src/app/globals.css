@@ -48,10 +48,23 @@ body {
   overflow-x: clip;
 }
 
-img,
+img:not(.header-logo):not(.header-brand-icon),
 video {
   max-width: 100%;
   height: auto;
+}
+
+.header-logo {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: none;
+}
+
+@media (max-width: 1023px) {
+  .header-logo {
+    height: 48px;
+  }
 }
 
 h1,
@@ -64,6 +77,10 @@ h6 {
   color: #1a1b1e;
   font-weight: 700;
   line-height: 1.25;
+}
+
+footer h2 {
+  color: #fff;
 }
 
 a {
@@ -184,28 +201,15 @@ a {
 .follow-us a {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 28px;
+  height: 28px;
   background: #fff;
-  color: #6f5418;
 }
 
-.follow-us a svg.header-brand-icon {
+.follow-us a img.header-brand-icon {
   display: block;
   width: 14px;
   height: 14px;
-  overflow: visible;
-}
-
-.follow-us a svg.header-brand-icon,
-.follow-us a svg.header-brand-icon * {
-  fill: #e3c57f !important;
-  stroke: none !important;
-}
-
-.follow-us a:hover svg.header-brand-icon,
-.follow-us a:hover svg.header-brand-icon * {
-  fill: #061729 !important;
 }
 
 input,

@@ -78,6 +78,23 @@ export function Footer() {
             focused on helping businesses build a stronger online presence and
             achieve sustainable digital growth.
           </p>
+          <div className="mt-5">
+            <p className="font-display text-sm font-bold uppercase tracking-wide text-gold">
+              Our Partner in India
+            </p>
+            <p className="mt-1 font-display text-[15px] font-bold text-white">
+              {site.partner.name}
+            </p>
+            <a
+              href={site.partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex items-center gap-2 text-[15px] transition-colors hover:text-gold"
+            >
+              <Globe className="h-4 w-4 shrink-0 text-gold" />
+              {site.partner.website}
+            </a>
+          </div>
           <div className="mt-6 flex gap-[5px]">
             {[
               { href: "https://facebook.com/", icon: FaFacebookF, label: "Facebook" },
@@ -176,6 +193,18 @@ export function Footer() {
               >
                 <Globe className="mt-0.5 h-[22px] w-[22px] shrink-0 text-gold" />
                 {site.website}
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${site.partner.name} website`}
+                className="flex items-start gap-2 py-[5px] transition-colors hover:text-gold"
+              >
+                <Globe className="mt-0.5 h-[22px] w-[22px] shrink-0 text-gold" />
+                {site.partner.website}
               </a>
             </li>
           </ul>
