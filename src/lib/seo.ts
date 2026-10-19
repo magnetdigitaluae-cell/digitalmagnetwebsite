@@ -12,10 +12,12 @@ export function createMetadata({
   title,
   description,
   path,
+  keywords,
 }: {
   title: string;
   description: string;
   path: string;
+  keywords?: string[];
 }): Metadata {
   const canonical = path.endsWith("/") ? path : `${path}/`;
   const absolute = new URL(canonical, `${site.url}/`).toString();
@@ -23,6 +25,7 @@ export function createMetadata({
   return {
     title,
     description,
+    keywords,
     alternates: { canonical },
     openGraph: {
       title: `${title} | ${site.name}`,

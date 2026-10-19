@@ -3,9 +3,11 @@ import Link from "next/link";
 export function PageHeader({
   title,
   current,
+  parent,
 }: {
   title: string;
   current?: string;
+  parent?: { href: string; label: string };
 }) {
   return (
     <section className="page-header">
@@ -16,6 +18,11 @@ export function PageHeader({
             <li>
               <Link href="/">Home</Link>
             </li>
+            {parent ? (
+              <li>
+                <Link href={parent.href}>{parent.label}</Link>
+              </li>
+            ) : null}
             <li aria-current="page">{current ?? title}</li>
           </ol>
         </nav>

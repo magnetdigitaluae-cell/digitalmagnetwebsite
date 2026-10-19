@@ -111,6 +111,11 @@ const jsonLd = {
     { "@type": "City", name: "Sharjah" },
     { "@type": "City", name: "Dubai" },
     { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "Saudi Arabia" },
+    { "@type": "Country", name: "Kuwait" },
+    { "@type": "Country", name: "Qatar" },
+    { "@type": "Country", name: "Bahrain" },
+    { "@type": "Country", name: "Oman" },
   ],
   sameAs: [
     "https://facebook.com/",

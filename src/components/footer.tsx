@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Globe, MailOpen, MapPin, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { BrandIcon, footerSocials } from "@/components/brand-icons";
+import { gccCountryLinks } from "@/lib/gcc-countries";
 import { site } from "@/lib/site";
 
 const quickLinks = [
@@ -199,6 +200,23 @@ export function Footer() {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className="container-site border-t border-white/10 px-0 py-10">
+        <h2 className="font-display text-xl font-bold text-white">
+          Best IT services
+        </h2>
+        <GoldDivider />
+        <p className="mb-4 max-w-3xl text-[15px] leading-7 text-white/80">
+          Country pages for the GCC markets we serve — websites, SEO, ads, and
+          apps in the UAE, Saudi Arabia, Kuwait, Qatar, Bahrain, and Oman.
+        </p>
+        <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
+          <ArrowLink href="/best-it-services" label="All GCC countries" gold />
+          {gccCountryLinks.map((link) => (
+            <ArrowLink key={link.href} href={link.href} label={link.label} />
+          ))}
+        </ul>
       </div>
 
       <div className="border-t border-white/10 py-2.5 text-center text-[15px] text-white">
