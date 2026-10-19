@@ -1,13 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Globe, MailOpen, MapPin, Phone } from "lucide-react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaWhatsapp,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { BrandIcon, footerSocials } from "@/components/brand-icons";
 import { site } from "@/lib/site";
 
 const quickLinks = [
@@ -96,21 +91,16 @@ export function Footer() {
             </a>
           </div>
           <div className="mt-6 flex gap-[5px]">
-            {[
-              { href: "https://facebook.com/", icon: FaFacebookF, label: "Facebook" },
-              { href: "https://twitter.com/", icon: FaTwitter, label: "Twitter" },
-              { href: "https://youtube.com/", icon: FaYoutube, label: "Youtube" },
-              { href: "https://instagram.com/", icon: FaInstagram, label: "Instagram" },
-            ].map(({ href, icon: Icon, label }) => (
+            {footerSocials.map(({ href, label, icon }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="social-icon grid h-11 w-11 place-items-center bg-gold text-navy transition-colors hover:bg-ink hover:text-gold"
+                className="social-icon grid h-11 w-11 place-items-center bg-gold"
               >
-                <Icon className="h-[18px] w-[18px]" />
+                <BrandIcon name={icon} size={18} color="#061729" />
               </a>
             ))}
           </div>
@@ -212,8 +202,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-2.5 text-center text-[15px] text-white">
-        Copyright © 2026 Magnet Digital llc. All Rights Reserved. & Design by :
-        Magnet Digital LLC.
+        Copyright © 2026 Magnet Digital LLC. All Rights Reserved.
       </div>
     </footer>
   );

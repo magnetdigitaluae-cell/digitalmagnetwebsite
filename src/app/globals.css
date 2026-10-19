@@ -212,6 +212,12 @@ a {
   height: 14px;
 }
 
+.social-icon img.header-brand-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
 input,
 textarea,
 select {
