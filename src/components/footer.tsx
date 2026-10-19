@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Globe, MailOpen, MapPin, Phone } from "lucide-react";
+import { ArrowRight, ChevronDown, Globe, MailOpen, MapPin, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { BrandIcon, footerSocials } from "@/components/brand-icons";
 import { gccCountryLinks } from "@/lib/gcc-countries";
@@ -202,22 +202,29 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container-site border-t border-white/10 px-0 py-10">
-        <h2 className="font-display text-xl font-bold text-white">
-          Best IT services
-        </h2>
-        <GoldDivider />
-        <p className="mb-4 max-w-3xl text-[15px] leading-7 text-white/80">
-          Country pages for the GCC markets we serve — websites, SEO, ads, and
-          apps in the UAE, Saudi Arabia, Kuwait, Qatar, Bahrain, and Oman.
-        </p>
-        <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
-          <ArrowLink href="/best-it-services" label="All GCC countries" gold />
-          {gccCountryLinks.map((link) => (
-            <ArrowLink key={link.href} href={link.href} label={link.label} />
-          ))}
-        </ul>
-      </div>
+      <details className="footer-expand border-t border-white/10">
+        <summary className="container-site flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-0 py-3">
+          <h2 className="font-display text-xl font-bold text-white">
+            Best IT services
+          </h2>
+          <ChevronDown
+            className="footer-expand-icon h-5 w-5 shrink-0 text-gold transition-transform duration-200"
+            aria-hidden
+          />
+        </summary>
+        <div className="container-site px-0 pb-8 pt-2">
+          <p className="mb-4 max-w-3xl text-[15px] leading-7 text-white/80">
+            Country pages for the GCC markets we serve — expand to browse every
+            location.
+          </p>
+          <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
+            <ArrowLink href="/best-it-services" label="All GCC countries" gold />
+            {gccCountryLinks.map((link) => (
+              <ArrowLink key={link.href} href={link.href} label={link.label} />
+            ))}
+          </ul>
+        </div>
+      </details>
 
       <div className="border-t border-white/10 py-2.5 text-center text-[15px] text-white">
         Copyright © 2026 Magnet Digital LLC. All Rights Reserved.

@@ -83,6 +83,18 @@ footer h2 {
   color: #fff;
 }
 
+.footer-expand summary::-webkit-details-marker {
+  display: none;
+}
+
+.footer-expand summary::marker {
+  content: "";
+}
+
+.footer-expand[open] .footer-expand-icon {
+  transform: rotate(180deg);
+}
+
 .bg-navy h2,
 .bg-navy h3 {
   color: #fff;
